@@ -43,3 +43,23 @@ var convertToRoman = function(num) {
 };
 
 convertToRoman(36);
+
+// Caesars Cipher
+function rot13(str) {
+  var newArray = [];
+  var regEx = /[A-Z]/;
+  str = str.split("");
+  for (var x in str) {
+    if (regEx.test(str[x])) {
+      newArray.push(((str[x].charCodeAt() - 65 + 13) % 26) + 65);
+    } else {
+      newArray.push(str[x].charCodeAt());
+    }
+  }
+  str = String.fromCharCode.apply(String, newArray);
+  return str;
+}
+
+rot13("SERR PBQR PNZC");
+
+//
